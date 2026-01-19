@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wishlist_flutter/models/wishmodel.dart';
 
 class WishlistProvider extends ChangeNotifier {
-  final List<Wish> _wishes = [];
+  final List<Wish> _wishes = [
+    Wish(title: 'Pollito')
+  ];
   List<Wish> get wishes => _wishes;
 
 
