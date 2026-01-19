@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:wishlist_flutter/Screens/HomeScreen.dart';
 import 'package:wishlist_flutter/provider/viewmodesls/providerviewmodel.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( home: HomeScreen(),);
+    //Se esta haciendo la prueba con CupertinoApp
+    return CupertinoApp( home: HomeScreen(),);
   }
 }
