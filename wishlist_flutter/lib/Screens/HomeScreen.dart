@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wishlist_flutter/models/wishmodel.dart';
@@ -38,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                 //se elimina el deseo de la Lista y si no hay nada en la LIST vuelve a "Agrega un deseo"
               wishlistProvider.removeWish(index);
             }, 
-            icon: Icon(Icons.delete)),
+            icon: Icon(CupertinoIcons.delete)),
           );
         },
       ),
