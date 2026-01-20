@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wishlist_flutter/models/wishmodel.dart';
+import 'package:wishlist_flutter/provider/viewmodesls/providerviewmodel.dart';
 
 class AddWishScreen extends StatefulWidget {
   const AddWishScreen({super.key});
@@ -11,12 +14,22 @@ class AddWishScreen extends StatefulWidget {
 class _AddWishScreenState extends State<AddWishScreen> {
   final _titleController = TextEditingController();
   final _descriptionController = TextEditingController();
-
+  //Limpiar los controllers
   @override
   void dispose(){
     _titleController.dispose();
     _descriptionController.dispose();
     super.dispose();
+  }
+
+  void _saveWish(){
+    if (_titleController.text.trim().isEmpty) return;
+    final wish = Wish(title: _titleController.text.trim(),
+     description: _descriptionController.text.trim()
+     );
+
+     context.read<WishlistProvider>().addWish(wish);
+     Navigator.of(context).pop();
   }
 
   @override
@@ -27,7 +40,7 @@ class _AddWishScreenState extends State<AddWishScreen> {
         middle: const Text('Add Wish'),
         trailing: CupertinoButton(child: Text('Done'),
          onPressed: (){
-          Navigator.of(context).pop();
+          _saveWish();
          })
          ,
       ),
@@ -35,7 +48,14 @@ class _AddWishScreenState extends State<AddWishScreen> {
       child: Column(
         children: [
           CupertinoTextField(
+            controller: _titleController,
             placeholder: 'Wish Title',
+          ),
+          const SizedBox(height: 12,),
+          CupertinoTextField(
+            controller: _descriptionController,
+            placeholder: 'Description',
+            maxLines: 3
           )
         ],
       ),),),
