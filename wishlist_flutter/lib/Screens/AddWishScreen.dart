@@ -1,8 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AddWishScreen extends StatelessWidget {
+class AddWishScreen extends StatefulWidget {
   const AddWishScreen({super.key});
+
+  @override
+  State<AddWishScreen> createState() => _AddWishScreenState();
+}
+
+class _AddWishScreenState extends State<AddWishScreen> {
+  final _titleController = TextEditingController();
+  final _descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
