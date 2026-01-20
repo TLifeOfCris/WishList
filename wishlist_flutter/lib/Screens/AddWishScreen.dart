@@ -13,6 +13,13 @@ class _AddWishScreenState extends State<AddWishScreen> {
   final _descriptionController = TextEditingController();
 
   @override
+  void dispose(){
+    _titleController.dispose();
+    _descriptionController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
 
