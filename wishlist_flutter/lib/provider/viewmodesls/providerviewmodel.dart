@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:wishlist_flutter/models/wishmodel.dart';
 
-class WishlistProvider extends ChangeNotifier {
-  final List<Wish> _wishes = [
-    Wish(title: 'Pollito')
+class ProductsProvider extends ChangeNotifier {
+  final List<Product> _wishes = [
+    Product(title: 'Pollito')
   ];
-  List<Wish> get wishes => _wishes;
+  List<Product> get wishes => _wishes;
 
 
 
   //Agregar un producto a la lista de deseos
-  void addWish(Wish wish){
+  void addWish(Product wish){
     _wishes.add(wish);
     notifyListeners();
   }
