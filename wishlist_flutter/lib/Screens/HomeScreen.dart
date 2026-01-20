@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wishlist_flutter/Screens/EmptyList.dart';
 import 'package:wishlist_flutter/models/wishmodel.dart';
 import 'package:wishlist_flutter/provider/viewmodesls/providerviewmodel.dart';
 import 'package:wishlist_flutter/widgets/cuppertinoButton.dart';
@@ -17,21 +18,7 @@ class HomeScreen extends StatelessWidget {
         middle: Text('WishList'),
       ),
       child: SafeArea(
-        child: wishes.isEmpty ?  Center( child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-        
-            Text('No wishes',style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey.shade600,
-              letterSpacing: 0.2
-            ),),
-            SizedBox(height: 16,),
-            IOSButton(text: 'Add Wish', onPressed: (){})
-          ],
-        ),) : ListView.builder(
+        child: wishes.isEmpty ?  EmptyList(): ListView.builder(
           itemCount: wishes.length,
           itemBuilder: (context, index){
             return CupertinoListTile(
