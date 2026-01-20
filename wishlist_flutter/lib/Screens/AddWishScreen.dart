@@ -24,11 +24,11 @@ class _AddWishScreenState extends State<AddWishScreen> {
 
   void _saveWish(){
     if (_titleController.text.trim().isEmpty) return;
-    final wish = Wish(title: _titleController.text.trim(),
+    final product = Product(title: _titleController.text.trim(),
      description: _descriptionController.text.trim()
      );
 
-     context.read<WishlistProvider>().addWish(wish);
+     context.read<ProductsProvider>().addWish(product);
      Navigator.of(context).pop();
   }
 
